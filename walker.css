@@ -1,0 +1,61 @@
+@define-color selected-text #bf57ce;
+@define-color text #ddd3de;
+@define-color base #000000;
+@define-color border #b394b8;
+@define-color foreground #ddd3de;
+@define-color background #000000;
+
+window .normal-icons,
+window .item-box,
+window .large-icons {
+  -gtk-icon-size: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Search */
+window .search-container,
+window .search {
+  background: alpha(@hover, 0.35);
+  color: @foreground;
+  border-radius: 10px;
+  padding: 2px 8px;
+  margin-top: 1px;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* Main container */
+.box-wrapper {
+  border-radius: 18px;
+  background: @background;
+}
+
+/* Item base */
+child {
+  border-radius: 10px;
+  padding: 2px 6px;
+  transition: background-color 0.18s ease-out,
+              margin 0.18s ease-out;
+}
+
+/* Hover */
+child:hover {
+  background-color: alpha(@hover, 0.25);
+}
+
+/* Selected item */
+child:selected {
+  background-color: alpha(@selected-box, 0.45);
+  transition: background-color 0.22s ease-out;
+}
+
+child:selected .item-box {
+  margin-left: 6px;
+  transition: margin 0.18s ease-out;
+}
+
+child:selected .item-box * {
+  color: @text;
+}
